@@ -111,3 +111,4 @@ ENV/
 *.swp
 
 .DS_Store
+uploads

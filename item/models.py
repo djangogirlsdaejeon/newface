@@ -24,13 +24,18 @@ class Drama(models.Model):
     category = models.ForeignKey(Category)
     name = models.CharField(max_length=100)
 
+    @property
+    def item_count(self):
+        item_count = Item.objects.filter(drama=self).count()
+        return item_count
+
     def __str__(self):
         return self.name
 
 class DramaEpisode(models.Model):
     db_table = 'drama_episode'
 
-    drama = models.ForeignKey(Drama)
+    drama = models.ForeignKey(Drama, related_name='episode')
     name = models.CharField(max_length=200)
     brodcasting_date = models.DateField()
 
@@ -42,19 +47,15 @@ class Item(models.Model):
     db_table = 'item'
 
     author = models.ForeignKey(User)
-    drama = models.ForeignKey(Drama)
+    drama = models.ForeignKey(Drama, related_name='item')
     episode = models.ForeignKey(DramaEpisode, null=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
+    upload = models.ImageField(upload_to='uploads/items/', null=True)
     status = models.BooleanField()
 
-
-class ItemPhoto(models.Model):
-    db_table = 'item_photo'
-
-    item = models.ForeignKey(Item)
-    filename = models.CharField(max_length=30)
-    path = models.CharField(max_length=200)
+    def __str__(self):
+        return self.title
 
 
 class ItemFeedback(models.Model):
@@ -76,7 +77,7 @@ class ItemComment(models.Model):
 class ItemReview(models.Model):
     db_table = 'item_review'
 
-    item = models.ForeignKey(Item)
+    item = models.ForeignKey(Item, related_name='review')
     author = models.ForeignKey(User)
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -87,8 +88,12 @@ class Question(models.Model):
     db_table = 'question'
 
     author = models.ForeignKey(User)
-    drama = models.ForeignKey(Drama, null=True)
+    drama = models.ForeignKey(Drama, null=True, related_name='question')
     episode = models.ForeignKey(DramaEpisode, null=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
+    upload = models.ImageField(upload_to='uploads/questions/'.format(id), null=True)
+
+    def __str__(self):
+        return self.title
 

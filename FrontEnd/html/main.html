@@ -17,17 +17,22 @@
             <input type="text" id="search-input" name="searchWord" placeholder="검색어를 입력해주세요."><button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
 
+        {% if request.session.user_id %}
         <div id="sign-in-up">
-            <span class="sign">Sign up</span><span style="font-size:2rem;"> | </span><span class="sign">Sign in</span>
+            <span>{{request.session.username}}님 환영합니다.</span> | <span><a href="/logout">Logout</a></span>
         </div>
+
+        {% else %}
+        <div id="sign-in-up">
+            <span class="sign"><a href="/signin">Sign up</a></span><span style="font-size:2rem;"> | </span><span class="sign"><a href="/signup">Sign in</a></span>
+        </div>
+        {% endif %}
     </header>
     <section>
         <nav id="category">
             <ul id="category-list">
                 <li>방영 드라마</li>
                 <li>종영 드라마</li>
-                <!--<li>예능 | 오락</li>
-                <li>시사 | 교양</li>-->
                 <li>애니메이션</li>
                 <li>영화</li>
                 <li>QnA</li>
@@ -43,26 +48,22 @@
                 </nav>
             </div>
             <div id="hot-drama">
-
+                {{drama.name}}
             </div><br>  
             <div class="thumbnail">
                 <ul>
                     <a href="#"><span>더 보기</span></a><h1>QnA</h1> 
-                    <li>시크릿가든 현빈 오빠가 입은 옷 어디서 살 수 있나요??</li>
-                    <li>도깨비 공유형이 입은 코트 사는 사이트 좀 알려주세요</li>
-                    <li>쌈마이웨이 김지원이 입은 원피스 파실분 있나요~?</li>
-                    <li>응답하라 1988에서 혜리가 입은 청청 집가고 싶어요</li>
-                    <li>드림하이 아이유가 썼던 인형탈 삽니다ㅏㅏ</li>
+                    {% for question in question_list %}
+                    <li>{{question.title}}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="thumbnail second-thumbnail">
                 <ul>
                     <a href="#"><span>더 보기</span></a><h1>Hot Item</h1> 
-                    <li>도깨비가 입다 버린 공유의 코트!</li>
-                    <li>김고은이 질리도록 매고 다닌 빨간 머플러</li>
-                    <li>무로 돌아갈려면 뽑아야 하는 필요한 도깨비 칼</li>
-                    <li>응답하라 1988 혜리도 입었다 최고의 패션 청청!</li>
-                    <li>지붕 뚫고 하이킥의 이광수 코스프레 풀 세트</li>
+                    {% for item in item_list %}
+                    <li>{{item.title}}</li>
+                    {% endfor %}
                 </ul>
             </div>
             
