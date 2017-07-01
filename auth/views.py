@@ -39,7 +39,13 @@ def login(request):
 def logout(request): 
     del request.session['auth']
     del request.session['user_id']
-    return HttpResponse('logout')
+
+    res = {
+        "status": "good",
+        "resource": {}
+    }
+
+    return JsonResponse(res, status=200)
 
 @csrf_exempt
 def join(request):
