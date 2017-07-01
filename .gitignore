@@ -109,3 +109,5 @@ ENV/
 # End of https://www.gitignore.io/api/python,django
 
 *.swp
+
+.DS_Store
