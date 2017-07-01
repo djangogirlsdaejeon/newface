@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^auth/logout/', auth.logout), 
     url(r'^auth/join/', auth.join), 
     url(r'^items/', item.Items.as_view()), 
+    url(r'^home/', item.Items.as_view()), 
 ]

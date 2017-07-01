@@ -4,6 +4,8 @@ from rest_framework.response import Response
 
 from item.models import Drama, Item
 
+import json
+
 class Items(APIView):
 
     def get(self, request):
@@ -13,6 +15,9 @@ class Items(APIView):
         return Response(dramas)
 
     def post(self, request):
+
+        json_data = json.loads(request.body)
+
         res = {
                 'wefwef': 'awefewf'
         }

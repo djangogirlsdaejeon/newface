@@ -46,15 +46,11 @@ class Item(models.Model):
     episode = models.ForeignKey(DramaEpisode, null=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
+    upload = models.ImageField(upload_to='uploads/items/', null=True)
     status = models.BooleanField()
 
-
-class ItemPhoto(models.Model):
-    db_table = 'item_photo'
-
-    item = models.ForeignKey(Item)
-    filename = models.CharField(max_length=30)
-    path = models.CharField(max_length=200)
+    def __str__(self):
+        return self.title
 
 
 class ItemFeedback(models.Model):
@@ -91,4 +87,8 @@ class Question(models.Model):
     episode = models.ForeignKey(DramaEpisode, null=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
+    upload = models.ImageField(upload_to='uploads/questions/', null=True)
+
+    def __str__(self):
+        return self.title
 
