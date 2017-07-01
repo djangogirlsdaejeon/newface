@@ -92,7 +92,7 @@ class Question(models.Model):
     episode = models.ForeignKey(DramaEpisode, null=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
-    upload = models.ImageField(upload_to='uploads/questions/', null=True)
+    upload = models.ImageField(upload_to='uploads/questions/'.format(id), null=True)
 
     def __str__(self):
         return self.title
