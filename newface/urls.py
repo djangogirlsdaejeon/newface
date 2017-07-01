@@ -17,10 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from auth import views as auth
+from item import views as item
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', item.home),
     url(r'^auth/login/', auth.login), 
     url(r'^auth/logout/', auth.logout), 
     url(r'^auth/join/', auth.join), 
+    url(r'^items/', item.Items.as_view()), 
 ]
