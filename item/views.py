@@ -9,6 +9,7 @@ from django.db.models import Count
 
 from item.models import Drama, Item, Question
 
+import json
 
 # Create your views here.
 @csrf_exempt
@@ -36,3 +37,61 @@ class Items(APIView):
         }
         return Response(res)
 
+class ItemDetail(APIView):
+
+    def get(self, request, item_id):
+        
+        item = Item.objects.get(id=item_id)
+        res = {
+            "imageSrc": item.upload.url,
+            "hashTags": [],
+            "questioner": item.author.username,
+            "description": item.title
+
+        }
+
+        return Response(res)
+
+    def post(self, request):
+        json_data = json.loads(request.POST)
+
+
+        res = {
+                'wefwef': 'awefewf'
+        }
+        return Response(res)
+
+
+class Questions(APIView):
+
+    def get(self, request):
+        question_list = Question.objects.all()
+
+        return Response(dramas)
+
+    def post(self, request):
+        return Response(res)
+
+class QuestionDetail(APIView):
+
+    def get(self, request, question_id):
+        
+        question = Question.objects.get(id=question_id)
+        res = {
+            "imageSrc": question.upload.url,
+            "hashTags": [],
+            "questioner": question.author.username,
+            "description": question.title
+
+        }
+
+        return Response(res)
+
+    def post(self, request):
+        json_data = json.loads(request.POST)
+
+
+        res = {
+                'wefwef': 'awefewf'
+        }
+        return Response(res)

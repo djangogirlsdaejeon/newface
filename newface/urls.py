@@ -24,7 +24,9 @@ urlpatterns = [
     url(r'^$', item.home, name='home'),
     url(r'^signin/$', auth.login), 
     url(r'^logout/$', auth.logout), 
-    url(r'^signup/', auth.join), 
-    url(r'^items/', item.Items.as_view()), 
-    url(r'^home/', item.Items.as_view()), 
+    url(r'^signup/$', auth.join), 
+    url(r'^items/$', item.Items.as_view()), 
+    url(r'^items/(?P<item_id>\d*)/$', item.ItemDetail.as_view()), 
+    url(r'^questions/$', item.Questions.as_view()), 
+    url(r'^questions/(?P<question_id>\d*)/$', item.QuestionDetail.as_view()), 
 ]
