@@ -15,9 +15,10 @@ def login(request):
     if request.method == 'POST':
         email = request.POST.get('email','')
         password = request.POST.get('password','')
-        user = User.objects.filter(email=email, password=password).first()
+        user = User.objects.filter(email=email).first()
 
-        if user:
+        if user and user.check_password(password) :
+            
             request.session['auth'] = True
             request.session['user_id'] = user.id
             request.session['username'] = user.username
@@ -43,25 +44,19 @@ def join(request):
         email = request.POST.get('email','')
         username = request.POST.get('username','')
         password = request.POST.get('password','')
+        import pdb; pdb.set_trace()
 
         try:
-            user, created = User.objects.get_or_create(
-                username=username,
-                email=email,
-                password=password)
-        except:
-            message = '정보를 확인해주세요!'
-            return render_to_response('message.html', {'message': message}, status=403)
-
-
-        if created:
+            user = User(email=email, username=username)
+            user.set_password(password)
+            user.save()
             request.session['auth'] = True
             request.session['user_id'] = user.id
             request.session['username'] = user.username
             return redirect('home')
-        else:
+        except:
             message = '정보를 확인해주세요!'
             return render_to_response('message.html', {'message': message}, status=403)
 
     else:
-        return render(request, 'main.html')
+        return render(request, 'signIn.html')
