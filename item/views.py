@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.db.models import Count
@@ -63,11 +64,13 @@ class ItemDetail(APIView):
 
 
 class Questions(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'QnA_List.html'
 
     def get(self, request):
         question_list = Question.objects.all()
 
-        return Response(dramas)
+        return Response({'question_list': question_list}, template_name='QnA_List.html')
 
     def post(self, request):
         return Response(res)

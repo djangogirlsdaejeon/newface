@@ -17,9 +17,16 @@
       <input type="text" id="search-input" name="searchWord" placeholder="검색어를 입력해주세요."><button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
 
-    <div id="sign-in-up">
-      <span class="sign">Sign up</span><span style="font-size:2rem;"> | </span><span class="sign">Sign in</span>
-    </div>
+        {% if request.session.user_id %}
+        <div id="sign-in-up">
+            <span>{{request.session.username}}님 환영합니다.</span> | <span><a href="/logout">Logout</a></span>
+        </div>
+
+        {% else %}
+        <div id="sign-in-up">
+            <span class="sign"><a href="/signin">Sign up</a></span><span style="font-size:2rem;"> | </span><span class="sign"><a href="/signup">Sign in</a></span>
+        </div>
+        {% endif %}
   </header>
   <nav id="category">
     <ul id="category-list">
@@ -42,16 +49,17 @@
         <option value="">수상한 파트너</option>
       </select>
     <hr>
+    {% for question in question_list %}
 
     <div id="body-box" onclick="openModal()">
       <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
+          <img src="/static/{{question.upload.url}}" alt="" width="100%;">
       </div>
       <div id="circle">
       </div>
       <span id="name">홍길동</span>
       <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
+          {{question.title}}
       </div>
       <span id="answer">답글 1</span>
       <span id="hashtag">#운빨로맨스</span>
@@ -59,253 +67,7 @@
       <span id="hashtag">#남방</span>
     </div>
 
-    <div id="body-box" onclick="openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21927582/640x-" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">김수미</span>
-      <div id="Question">
-        아니 근데 겁나 힘들다..
-      </div>
-
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-
-    <div id="body-box" onclick="openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/19529122/440x440" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동2</span>
-      <div id="Question">
-        아니 근데 겁나 힘들다..
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-
-    <div id="body-box">
-
-      <div id="box-picture" onclick = "openModal()">
-        <img src="https://usercontents-c.styleshare.kr/images/21927586/640x640" alt="" width="100%;">
-      </div>
-
-      <div id="circle">
-      </div>
-      <span id="name">야호야호</span>
-      <div id="Question">
-        아니 근데 겁나 힘들다..
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick = "openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/19529122/440x440" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동2</span>
-      <div id="Question">
-        아니 근데 겁나 힘들다..
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box">
-      <div id="box-picture" onclick="openModal()">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick="openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box">
-      <div id="box-picture" onclick = "openModal()">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box">
-      <div id="box-picture" onclick = "openModal()">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box">
-      <div id="box-picture" onclick = "openModal()">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box">
-      <div id="box-picture" onclick = "openModal()">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick = "openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick = "openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick = "openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick = "openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick = "openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="body-box" onclick = "openModal()">
-      <div id="box-picture">
-        <img src="https://usercontents-c.styleshare.kr/images/21640615/640x640" alt="" width="100%;">
-      </div>
-      <div id="circle">
-      </div>
-      <span id="name">홍길동</span>
-      <div id="Question">
-        운빨 로맨스 류준열 바지 아시는분?급하게 찾습니당ㅠㅠ
-      </div>
-      <span id="answer">답글 1</span>
-      <span id="hashtag">#운빨로맨스</span>
-      <span id="hashtag">#류준열</span>
-      <span id="hashtag">#남방</span>
-    </div>
-    <div id="modal-background">
-    </div>
+    {% endfor %}
       <div id="modal-container">
         <div id="about-question">
           <img src="../static/img/question-img.png" alt="image"><br>
