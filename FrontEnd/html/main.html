@@ -12,6 +12,7 @@
 
 <body>
     <header>
+        <img src="../img/HIPICK-logo.png" alt="Logo" id="logo">
         <form action="/search/:searchWord" id="search-form">
             <input type="text" id="search-input" name="searchWord" placeholder="검색어를 입력해주세요."><button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
@@ -20,17 +21,52 @@
             <span class="sign">Sign up</span><span style="font-size:2rem;"> | </span><span class="sign">Sign in</span>
         </div>
     </header>
-    <nav id="category">
-        <ul id="category-list">
-            <li>방영 드라마</li>
-            <li>종영 드라마</li>
-            <li>예능 | 오락</li>
-            <li>시사 | 교양</li>
-            <li>애니메이션</li>
-            <li>스포츠</li>
-            <li>영화</li>
-        </ul>
-    </nav>
+    <section>
+        <nav id="category">
+            <ul id="category-list">
+                <li>방영 드라마</li>
+                <li>종영 드라마</li>
+                <!--<li>예능 | 오락</li>
+                <li>시사 | 교양</li>-->
+                <li>애니메이션</li>
+                <li>영화</li>
+                <li>QnA</li>
+            </ul>
+        </nav>
+        <content id="main-content">
+            <div id="image-slider">
+                <nav>
+                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-circle-o" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-circle-o" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-circle-o" aria-hidden="true"></i></span>
+                </nav>
+            </div>
+            <div id="hot-drama">
+
+            </div><br>  
+            <div class="thumbnail">
+                <ul>
+                    <a href="#"><span>더 보기</span></a><h1>QnA</h1> 
+                    <li>시크릿가든 현빈 오빠가 입은 옷 어디서 살 수 있나요??</li>
+                    <li>도깨비 공유형이 입은 코트 사는 사이트 좀 알려주세요</li>
+                    <li>쌈마이웨이 김지원이 입은 원피스 파실분 있나요~?</li>
+                    <li>응답하라 1988에서 혜리가 입은 청청 집가고 싶어요</li>
+                    <li>드림하이 아이유가 썼던 인형탈 삽니다ㅏㅏ</li>
+                </ul>
+            </div>
+            <div class="thumbnail second-thumbnail">
+                <ul>
+                    <a href="#"><span>더 보기</span></a><h1>Hot Item</h1> 
+                    <li>도깨비가 입다 버린 공유의 코트!</li>
+                    <li>김고은이 질리도록 매고 다닌 빨간 머플러</li>
+                    <li>무로 돌아갈려면 뽑아야 하는 필요한 도깨비 칼</li>
+                    <li>응답하라 1988 혜리도 입었다 최고의 패션 청청!</li>
+                    <li>지붕 뚫고 하이킥의 이광수 코스프레 풀 세트</li>
+                </ul>
+            </div>
+        </content>
+    </section>
 </body>
 
 </html>
