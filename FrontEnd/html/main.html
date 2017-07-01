@@ -17,9 +17,16 @@
             <input type="text" id="search-input" name="searchWord" placeholder="검색어를 입력해주세요."><button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
 
+        {% if request.session.user_id %}
+        <div id="sign-in-up">
+            <span>{{request.session.username}}님 환영합니다.</span>
+        </div>
+
+        {% else %}
         <div id="sign-in-up">
             <span class="sign">Sign up</span><span style="font-size:2rem;"> | </span><span class="sign">Sign in</span>
         </div>
+        {% endif %}
     </header>
     <section>
         <nav id="category">
