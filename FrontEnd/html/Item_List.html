@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/Item.List.css">
+
+    <title>Hip</title>
+</head>
+
+<body>
+    <header>
+        <form action="/search/:searchWord" id="search-form">
+            <input type="text" id="search-input" name="searchWord" placeholder="검색어를 입력해주세요."><button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+
+        <div id="sign-in-up">
+            <span class="sign">Sign up</span><span style="font-size:2rem;"> | </span><span class="sign">Sign in</span>
+        </div>
+    </header>
+    <nav id="category">
+        <ul id="category-list">
+            <li>방영 드라마</li>
+            <li>종영 드라마</li>
+            <li>예능 | 오락</li>
+            <li>시사 | 교양</li>
+            <li>애니메이션</li>
+            <li>스포츠</li>
+            <li>영화</li>
+        </ul>
+    </nav>
+    <div id="itemlist_body">
+
+        <span id="itemlist_text">Item List</span>
+        <hr>
+        <div id="box" onmouseover="hoverModal(this)" style="background-image:url('https://usercontents-c.styleshare.kr/images/20663140/640x640');background-size:cover;background-position:center;">
+            <div id="boxhover">
+                <p id="boxtext">전지현</p>
+            </div>
+        </div>
+        <div id="box" onmouseenter="hoverModal(this)" style="background-image:url('https://usercontents-c.styleshare.kr/images/17003422/640x-');background-size:cover;background-position:center;">
+        <div id="boxhover">
+                <p id="boxtext">이효리</p>
+            </div>
+        </div>
+        <div id="box" onmouseenter="hoverModal(this)" style="background-image: url('https://usercontents-c.styleshare.kr/images/19818240/640x640');background-size:cover;background-position: center;">
+<div id="boxhover">
+                <p id="boxtext">전지현</p>
+            </div>
+        </div>
+         <div id="box" onmouseenter="hoverModal(this)" style="background-image: url('https://usercontents-c.styleshare.kr/images/19818240/640x640');background-size:cover;background-position: center;">
+<div id="boxhover">
+                <p id="boxtext">전지현</p>
+            </div>
+        </div> <div id="box" onmouseenter="hoverModal(this)" style="background-image: url('https://usercontents-c.styleshare.kr/images/19818240/640x640');background-size:cover;background-position: center;">
+<div id="boxhover">
+                <p id="boxtext">전지현</p>
+            </div>
+        </div> <div id="box" onmouseenter="hoverModal(this)" style="background-image: url('https://usercontents-c.styleshare.kr/images/19818240/640x640');background-size:cover;background-position: center;">
+<div id="boxhover">
+                <p id="boxtext">전지현</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="../static/js/modal2.js"></script>
+
+
+</html>
