@@ -19,12 +19,12 @@
 
         {% if request.session.user_id %}
         <div id="sign-in-up">
-            <span>{{request.session.username}}님 환영합니다.</span>
+            <span>{{request.session.username}}님 환영합니다.</span> | <span><a href="/logout">Logout</a></span>
         </div>
 
         {% else %}
         <div id="sign-in-up">
-            <span class="sign">Sign up</span><span style="font-size:2rem;"> | </span><span class="sign">Sign in</span>
+            <span class="sign"><a href="/signin">Sign up</a></span><span style="font-size:2rem;"> | </span><span class="sign"><a href="/signup">Sign in</a></span>
         </div>
         {% endif %}
     </header>
