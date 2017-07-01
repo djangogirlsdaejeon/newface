@@ -11,3 +11,4 @@ modalBackground.addEventListener('click', () => {
     modalBackground.style.visibility = "hidden";
     modalContainer.style.visibility = "hidden";
 });
+
