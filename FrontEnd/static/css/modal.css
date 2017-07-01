@@ -1,32 +1,40 @@
-html,body{
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
-@keyframes wiggle{
-    25%{
+@keyframes wiggle {
+    25% {
         transform: rotate(5deg);
     }
-    50%{
+    50% {
         transform: rotate(-5deg);
     }
-    75%{
+    75% {
         transform: rotate(5deg);
     }
-    100%{
+    100% {
         transform: rotate(0deg);
     }
 }
 
-#modal-background{
+#modal-background {
+    visibility: hidden;
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
 }
 
-#modal-container{
+#modal-container {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 60%;
     width: 60%;
     background-color: #fff;
@@ -38,13 +46,14 @@ html,body{
     float: left;
 }
 
-#about-question img{
+#about-question img {
     width: 32rem;
     margin: 1rem 0 0 1rem;
     display: inline-block;
 }
-#about-question span{
-    padding : 0.8rem 1rem;
+
+#about-question span {
+    padding: 0.8rem 1rem;
     font-size: 1.2rem;
     border: 0.1px solid #F55291;
     border-radius: 0.5rem;
@@ -53,42 +62,42 @@ html,body{
     background-color: #F55291;
     margin-left: 1rem;
 }
-#about-question #hashtag{
+
+#about-question #hashtag {
     margin-top: 3rem;
 }
 
-#QnA-container{
+#QnA-container {
     display: inline-block;
 }
 
-.QnA{
+.QnA {
     width: 18rem;
     height: 11rem;
     border: 0.1px solid #c5c5c5;
     margin: 1rem 0 0 1.5rem;
 }
 
-.QnA img{
+.QnA img {
     height: 2rem;
     border-radius: 2rem;
     margin: 1rem 0 0 1rem;
     float: left;
 }
 
-.QnA span{
+.QnA span {
     display: inline-block;
     font-size: 1.2rem;
     margin: 1.2rem 0 0 0.8rem;
 }
 
-.QnA p{
+.QnA p {
     width: 80%;
     height: 30%;
     margin: 2rem 0 0 10%;
-
 }
 
-#answer-btn{
+#answer-btn {
     font-size: 2rem;
     height: 3rem;
     width: 3rem;
@@ -101,17 +110,17 @@ html,body{
     cursor: pointer;
 }
 
-#answer-btn:hover{
+#answer-btn:hover {
     animation: wiggle 0.5s;
 }
 
-#answer-num{
+#answer-num {
     display: inline-block;
     font-size: 2rem;
     margin: 1rem 0 1rem 1.8rem;
 }
 
-#answer-list{
+#answer-list {
     height: 12rem;
     overflow-y: scroll;
 }
